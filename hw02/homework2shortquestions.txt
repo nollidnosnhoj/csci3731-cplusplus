@@ -1,0 +1,19 @@
+CSCI 3731 C++ Homework 2
+Randall Dillon Johnson
+September 1, 2018
+
+1. Using the const keyword for a variable makes sure that the compiler does not allow you to change the value of the variable after being initialized. Without the const keyword will allow you to change the value of the variable after initialization.
+
+2. Funciton declaration defines the function anywhere, and makes sure that the compiler knows that the function exists and tells it the argument and the return value. Function definition defines what the function actually does and how to calculate the return value.
+
+3. An unsigned integer can holds a much higher number because the bit that indicates whether the value is positive and negative will be used for the value. This could also be used as an array index, where a negative index is not possible.
+
+4. Sum does not have an initial value, so sum could hold some arbitrary number, thus making the sum value not correct.
+
+5. Although the compiler will compile the code, n=0 should be n==0 to make it a condition. Also print should be printf.
+
+6. Use the sizeof operator to find how many bytes a variable or data type has. 
+- char (1 byte)
+- short (2 bytes)
+- int (4 bytes)
+- long (4 or 8 bytes)
