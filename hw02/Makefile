@@ -1,10 +1,10 @@
 all: main
 
-expo.o: expo.cc expo.h
-	g++ -c -Werror expo.cc
+calculator.o: calculator.cc calculator.h
+	g++ -c -Werror calculator.cc
 	
-main.o: main.cc expo.h
+main.o: main.cc calculator.h
 	g++ -c -Werror main.cc
 	
-main: main.o expo.o
-	g++ -o main main.o expo.o
+main: main.o calculator.o
+	g++ -o main main.o calculator.o
