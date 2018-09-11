@@ -1,0 +1,50 @@
+Randall D. Johnson
+CSCI 3731 A 
+9/10/2018
+
+Homework #3
+
+1. 
+
+if (i = 0) means that the program is declaring the integer i to the value 0. This means that the loop will go on forever, because the program will keep on declaring i to 0. To fix this change if (i=0) to if (i==0). This compares the value in the variable i to the integer 0. This does not declare i to 0. 
+
+2. 
+
+
+
+3. 
+
+Since the pointer (ptr) is pointing to nothing, the scanner does not know where to store the input value. A solution would be:
+int value = 0;
+scanf("%d", &value);
+printf("You entered %d", value);
+
+4. 
+
+a. int* a 
+- declaring pointer a is pointing to an integer.
+b. const int b 
+- declaring pointer  a constant integer.
+c. const int* c 
+- declaring pointer  c pointing to a constant integer.
+d. int* const d 
+- declaring a constant pointer d pointing to an integer.
+e. const int* const e
+ - declaring a constant pointer e pointing to a constant integer.
+
+5. 
+
+& returns the pointer to the data; * dereferences the pointer.
+examples:
+&a returns the pointer (memory address) to the data in variable a.
+*a returns the data that pointer a references.
+
+6. 
+
+const int* a
+This declares a pointer (a) that points to a constant integer data.
+The point can be modified, but the integer that the point points to cannot.
+
+int* const b
+This declares a constant pointer (b) that points to an integer.
+The data that the pointer points to can be modified, but the pointer itself cannot.
