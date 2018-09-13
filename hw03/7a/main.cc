@@ -1,25 +1,24 @@
 #include <stdio.h>
 
 int main() {
+
     // read file
-	FILE* fp = fopen("storage.txt", "r");
-    // if file does not exist
-    if (fp == NULL) {
-        printf("File does not exist. Create storage.txt");
-    } else {
-        // storing integer content into cache variable
-        int cache = 0;
-        // read (scan) contents into the cache variable
-        // will read until reaches whitespace or ends
+    FILE* fp = fopen("storage.txt", "r");
+    // initialize cache integer
+    int cache = 0;
+    // if file does exist, store data in file into where cache is pointing to
+    if (fp != NULL) {
         fscanf(fp, "%d", &cache);
-        // increment 
-        cache++;
-        // write file
-        fp = fopen("storage.txt", "w");
-        // add new value
-        fprintf(fp, "%d", cache);
-        printf("Incremented!");
     }
-    // close file
+    // write file (will re-create regardless)
+    fp = fopen("storage.txt", "w");
+    // increment cache integer
+    cache++;
+    // write the new integer in the file
+    fprintf(fp, "%d", cache);
+    printf("Incremented");
+    // close file pointer
     fclose(fp);
+    return 0;
+
 }

@@ -8,9 +8,24 @@ Homework #3
 
 if (i = 0) means that the program is declaring the integer i to the value 0. This means that the loop will go on forever, because the program will keep on declaring i to 0. To fix this change if (i=0) to if (i==0). This compares the value in the variable i to the integer 0. This does not declare i to 0. 
 
+int min;
+for (int i = 0; i < 10; ++i) {
+    int value = 0;
+    scanf("%d", &value);
+    if (i == 0) min = value;
+    else if (value < min) min = value;
+}
+
 2. 
 
+When you are using two integer variables as arguments, the data is pushed into the memory stack for the function. It is legal to return one of the pointers of the two integers, but when the function ends, all local data that was part of the function will be popped off the stack. Now the return pointer does not point to anything. This is a known bug known as "pointer to local data." 
 
+To fix this bug, use pointers as arguments. Pointers will give a reference of where in the data it is pointing to. The data itself is not part of the function and is not pushed into the stack. So when you return the pointer, the data will still exist.
+
+int* pointerToMax(int* a, int* b) {
+    if (*a > *b) return a;
+    else return b;
+}
 
 3. 
 
