@@ -1,0 +1,50 @@
+Randall Johnson
+September 17, 2018
+CSCI 3731 - Homework #4
+
+1. 
+
+Since the temp pointer was defined in the function, 
+once the function ends, 
+the temp pointer is deleted, 
+so the b pointer is not referencing anything.
+
+void swap(int* a, int* b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+2. 
+
+The condition in the for loop does not have the condition to check if the index is less than the length of the string. 
+The reason for adding this condition just in case we do not have enough space to allocate for. 
+Let's say a program ask for a user input of characters, and then stores whatever the user inputs into an array. 
+If the user goes pass the allocated size of the array, then it could write into some memory.
+
+for (int i = 0; string[i] != '\0' && i < 8; ++i) { }
+
+3. 
+
+void f(array+2, 3);
+
+4. 
+
+Creating an array within a function makes it local, so when the program goes out of scope, the memory stack for that array is gone. Instead, add the array into a heap.
+
+double* allocateArray(int length) {
+    return new double[length];
+}
+
+5. 
+
+the array of characters does not have a null terminator.
+
+char string[6];
+string[0] = 'h';
+string[1] = 'e';
+string[2] = 'l';
+string[3] = 'l';
+string[4] = 'o';
+string[5] = '\0';
+printf("%s", string);
