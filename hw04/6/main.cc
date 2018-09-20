@@ -16,7 +16,7 @@ int main() {
     // printPPM(pixels, size);
     printf("Copying ppm file\n");
     writePPM("newtest.ppm", &width, &height, &maxPx, &size, magicNumber, pixels);
-    printf("Copying completed !\n")
+    printf("Copying completed !\n");
 
     delete [] pixels;
     pixels = NULL;
