@@ -1,0 +1,21 @@
+Randall D. Johnson
+CSCI 3731 - Homework 5
+
+1.
+
+C is not good at handling two dimensional arrays because if you pass the array to a function,
+then the dimensions of the 2d array have to be specified during compile time.
+
+2.
+
+Generate a flat array. Basically just flatten the 2d array into one long 1d array. 
+The issue with this is accessing data from a specific row and column.
+Another way is the "Numerical Recipe trick". 
+Basically create an array of pointers (a) that will represent that height of the 2D array.
+Then allocate flat array (*a) with the size of width times height. 
+a[0] will be pointing to the first element of the flat array. 
+Then loop through the array of pointers and 
+each pointer will point to an element in the flat array, based on the width. 
+
+3.
+
