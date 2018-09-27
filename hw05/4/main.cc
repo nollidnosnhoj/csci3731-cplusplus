@@ -8,6 +8,11 @@ int main() {
     unsigned int max = 0;     // ppm max pixel value
     unsigned int size = 0;      // ppm size of image
     
-    
+    int** pixels = readPPM("test.ppm", &width, &height, &max, &size, header);
+    writePPM("newtest.ppm", width, height, max, size, header, pixels);
+
+    delete [] *pixels;
+    delete [] pixels;
+    pixels = NULL;
 }
 
