@@ -9,7 +9,16 @@ int main() {
     unsigned int size = 0;      // ppm size of image
     
     int** pixels = readPPM("test.ppm", &width, &height, &max, &size, header);
-    writePPM("newtest.ppm", width, height, max, size, header, pixels);
+
+    if (pixels != NULL) {
+        printf("Width: %d, Height: %d\n", width, height);
+        printf("Maximum pixels: %d\n", max);
+        printf("Size of image: %d\n\n", size);
+
+        printf("Copying ppm file\n");
+        writePPM("newtest.ppm", width, height, max, size, header, pixels);
+        printf("Copying completed !\n");
+    }
 
     delete [] *pixels;
     delete [] pixels;
