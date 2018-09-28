@@ -19,3 +19,5 @@ each pointer will point to an element in the flat array, based on the width.
 
 3.
 
+My computer is little endian 0 1 0 0.
+I use the endiantest.cc to check if my computer cpu is little or big endian.
