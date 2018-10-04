@@ -1,10 +1,10 @@
 all:main
 
-ppm.o: ppm.c ppm.h
-	g++ -c -Werror ppm.c
+ppm.o: ppm.cc ppm.h
+	g++ -c -Werror ppm.cc
 
-main.o: main.c ppm.h
-	g++ -c -Werror main.c
+main.o: main.cc ppm.h
+	g++ -c -Werror main.cc
 
 main: main.o ppm.o
-	g++ -o main main.o ppm.o -ljpeg
+	g++ -o main main.o ppm.o -llibjpeg

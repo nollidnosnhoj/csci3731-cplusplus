@@ -11,7 +11,7 @@ int main() {
     int** pixels = readPPM("test.ppm", &width, &height, &max, &size, header);
 
     if (pixels != NULL) {
-        writeAsJPEG("test.jpg", width, height, size, 1, pixels);
+        writeAsJPEG("test.jpg", width, height, size, 50, pixels);
     }
 
     delete [] *pixels;

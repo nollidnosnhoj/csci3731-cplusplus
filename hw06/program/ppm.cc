@@ -56,34 +56,39 @@ void writeAsJPEG   (const char* fileName,
                     const int quality,
                     int** pixels) {
     
-    struct jpeg_compress_struct jcInfo; /* jpeg "working space" */
-    struct jpeg_error_mgr jpegError;    /* jpeg error handler */
+    struct jpeg_compress_struct cInfo; /* jpeg "working space" */
+    struct jpeg_error_mgr jError;    /* jpeg error handler */
+
+    printf("1\n");
 
     JSAMPROW row_pointer[1];
     int row_stride;
-
-    jcInfo.err = jpeg_std_error(&jpegError);    /* setup error handler */
-
-    jpeg_create_compress(&jcInfo);  /* initialize jpeg compression object */
-
     
     FILE* fp = fopen(fileName, "wb");   /* setup file pointer */
-    if (fp == NULL) {
+    if (!fp) {
         fprintf(stderr, "cannot open %s\n", fileName);
         exit(1);
     }
 
-    jpeg_stdio_dest(&jcInfo, fp);   /* tell jpeg compression object about the file */
+    printf("2\n");
 
-    jcInfo.image_width = width; /* image width */
-    jcInfo.image_height = height;   /* image height */
-    jcInfo.input_components = 3;    /* # of color components per pixel (rgb) */
-    jcInfo.in_color_space = JCS_RGB;    /* some color space thingy...
+    cInfo.err = jpeg_std_error(&jError);    /* setup error handler */
+    jpeg_create_compress(&cInfo);  /* initialize jpeg compression object */
+    jpeg_stdio_dest(&cInfo, fp);   /* tell jpeg compression object about the file */
+
+    printf("3\n");
+
+    cInfo.image_width = width; /* image width */
+    cInfo.image_height = height;   /* image height */
+    cInfo.input_components = 3;    /* # of color components per pixel (rgb) */
+    cInfo.in_color_space = JCS_RGB;    /* some color space thingy...
     * to be honest... don't know what it does, but it's essential.
     */
 
-    jpeg_set_defaults(&jcInfo); /* set default compression parameters */
-    jpeg_set_quality(&jcInfo, quality, TRUE);   /* set quality compression parameters */
+    jpeg_set_defaults(&cInfo); /* set default compression parameters */
+    jpeg_set_quality(&cInfo, quality, TRUE);   /* set quality compression parameters */
+
+    printf("4\n");
 
     unsigned char data[size * 3];   /* setup flat array for binary data */
     int* flat = *pixels;    /* unpack 2d array into a flat array */
@@ -94,15 +99,19 @@ void writeAsJPEG   (const char* fileName,
         data[(i * 3) + 2] = byte[3];
     }
 
+    printf("5\n");
+
     row_stride = width * 3;
 
-    while(jcInfo.next_scanline < jcInfo.image_height) {
-        row_pointer[0] = &data[jcInfo.next_scanline * row_stride];
-        (void) jpeg_write_scanlines(&jcInfo, row_pointer, 1);
+    while(cInfo.next_scanline < cInfo.image_height) {
+        row_pointer[0] = (JSAMPROW) &data[cInfo.next_scanline * row_stride];
+        jpeg_write_scanlines(&cInfo, row_pointer, 1);
     }
 
-    jpeg_finish_compress(&jcInfo);
+    printf("6\n");
+
+    jpeg_finish_compress(&cInfo);
     fclose(fp);
-    jpeg_destroy_compress(&jcInfo);
+    jpeg_destroy_compress(&cInfo);
 
 }
