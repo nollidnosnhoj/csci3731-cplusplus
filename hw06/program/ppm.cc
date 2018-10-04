@@ -61,8 +61,8 @@ void writeAsJPEG   (const char* fileName,
 
     printf("1\n");
 
-    JSAMPROW row_pointer[1];
-    int row_stride;
+    JSAMPROW row_pointer[1];    // pointer for jpeg compression
+    int row_stride; // rows
     
     FILE* fp = fopen(fileName, "wb");   /* setup file pointer */
     if (!fp) {
@@ -101,14 +101,19 @@ void writeAsJPEG   (const char* fileName,
 
     printf("5\n");
 
+    jpeg_start_compress(&cInfo, TRUE);  /* start compression */
+
     row_stride = width * 3;
 
+    /* write into jpeg */
     while(cInfo.next_scanline < cInfo.image_height) {
         row_pointer[0] = (JSAMPROW) &data[cInfo.next_scanline * row_stride];
         jpeg_write_scanlines(&cInfo, row_pointer, 1);
     }
 
     printf("6\n");
+
+    /* finish jpeg writing */
 
     jpeg_finish_compress(&cInfo);
     fclose(fp);

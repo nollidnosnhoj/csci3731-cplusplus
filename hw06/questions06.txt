@@ -1,0 +1,12 @@
+Randall D. Johnson
+October 1, 2018
+CSC 3731 - C/C++
+Homework 6
+
+1.
+
+Libraries are good for re-using someone else's code so that you can focus on coding something else. 
+
+2. 
+
+Static libraries are like object files that they become part of the executable file, while shared libraries are separate from it. It is good to have static library because it is part of the executable, so it does not have to search for the library file. It makes distribution easier, but it also increases the size of the executable file. Shared library can be used in multiple executables, and they can be loaded in runtime.
