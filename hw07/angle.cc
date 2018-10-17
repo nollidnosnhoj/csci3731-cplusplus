@@ -4,13 +4,13 @@
 // Angle constructor
 Angle::Angle(int x) {
     // Make sure angle stay between 0 and 360 degrees.
-    if (x > 360) {
+    if (x >= 360) {
         this->degrees = x % 360;
-    }
-
-    if (x < 0) {
-        int x = x % 360;
+    } else if (x < 0) {
+        x = x % 360;
         this->degrees = x + 360;
+    } else {
+        this->degrees = x;
     }
 }
 
