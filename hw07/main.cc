@@ -91,9 +91,9 @@ int main() {
             std::cout << "enter double: " << std::endl;
             std::cin >> dub;
             a1 = dub;
-            std::cout << a1 << std::endl;
-            break;
+            std::cout << a1 << std::endl; 
         }
+        break;
         default:
             std::cout << "invalid option :D" << std::endl;
     }
