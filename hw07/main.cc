@@ -20,19 +20,19 @@ int main() {
     // option integer
     int s;
 
-    std::cout << "Choose Options: " << std::endl;
+    std::cout << "Choose an option: " << std::endl;
 
-    std::cout << "1) addition" << std::endl;
-    std::cout << "2) increment" << std::endl;
-    std::cout << "3) subtraction" << std::endl;
-    std::cout << "4) decrement" << std::endl;
-    std::cout << "5) multiplication" << std::endl;
-    std::cout << "6) multiply increment" << std::endl;
-    std::cout << "7) division" << std::endl;
-    std::cout << "8) division decrement" << std::endl;
-    std::cout << "9) comparison" << std::endl;
-    std::cout << "10) assignment" << std::endl;
-    std::cout << "11) assign double to angle" << std::endl;
+    std::cout << "1) (a + b)" << std::endl;
+    std::cout << "2) (a += b)" << std::endl;
+    std::cout << "3) (a - b)" << std::endl;
+    std::cout << "4) (a -= b)" << std::endl;
+    std::cout << "5) (a * b)" << std::endl;
+    std::cout << "6) (a *= b)" << std::endl;
+    std::cout << "7) (a / b)" << std::endl;
+    std::cout << "8) (a /= b)" << std::endl;
+    std::cout << "9) (a == b)" << std::endl;
+    std::cout << "10) (a = b; b is an angle)" << std::endl;
+    std::cout << "11) (a = b; b is a double)" << std::endl;
     std::cout << "0) DONE" << std::endl;
 
     std::cin >> s;
@@ -98,3 +98,33 @@ int main() {
             std::cout << "invalid option :D" << std::endl;
     }
 }
+/*                  _ww   _a+"D
+         y#,  _r^ # _*^  y`
+        q0 0 a"   W*`    F   ____
+     ;  #^ Mw`  __`. .  4-~~^^`
+    _  _P   ` /'^           `www=.
+  , $  +F    `                q
+  K ]                         ^K`
+, #_                . ___ r    ],
+_*.^            '.__dP^^~#,  ,_ *,
+^b    / _         ``     _F   ]  ]_
+ '___  '               ~~^    ]   [
+ :` ]b_    ~k_               ,`  yl
+   #P        `*a__       __a~   z~`
+   #L     _      ^------~^`   ,/
+    ~-vww*"v_               _/`
+            ^"q_         _x"
+             __#my..___p/`mma____
+         _awP",`,^"-_"^`._ L L  #
+       _#0w_^_^,^r___...._ t [],"w
+      e^   ]b_x^_~^` __,  .]Wy7` x`
+       '=w__^9*$P-*MF`      ^[_.=
+           ^"y   qw/"^_____^~9 t
+             ]_l  ,'^_`..===  x'
+              ">.ak__awwwwWW###r
+                ##WWWWWWWWWWWWWW__
+               _WWWWWWMM#WWWW_JP^"~-=w_
+     .____awwmp_wNw#[w/`     ^#,      ~b___.
+      ` ^^^~^"W___            ]Raaaamw~`^``^^~
+                ^~"~---~~~~~~`
+                https://www.asciiart.eu/comics/calvin-and-hobbes */

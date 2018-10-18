@@ -7,8 +7,7 @@ Angle::Angle(int x) {
     if (x >= 360) {
         this->degrees = x % 360;
     } else if (x < 0) {
-        x = x % 360;
-        this->degrees = x + 360;
+        this->degrees = (x % 360) + 360;
     } else {
         this->degrees = x;
     }
