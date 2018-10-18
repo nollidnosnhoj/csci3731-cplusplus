@@ -29,7 +29,9 @@ void Angle::set(int x) {
     this->degrees = x;
 }
 
-// angle + angle
+// returns an new angle by adding one angle and another.
+// the second argument is a refernece to an angle
+// method is constant so it does not modify the object's data
 Angle Angle::operator+(const Angle& a) const {
     int newDegrees = degrees + a.get();
     if (newDegrees > 360) {
@@ -38,7 +40,9 @@ Angle Angle::operator+(const Angle& a) const {
     return Angle(newDegrees);
 }
 
-// angle += angle
+// returns the reference of an object that is constant.
+// the second argument is a reference of an angle
+// we want to modify the data of the angle that is being added
 const Angle& Angle::operator+=(const Angle& a) {
     degrees += a.get();
     if (degrees > 360) {
@@ -110,7 +114,13 @@ const Angle& Angle::operator=(const Angle& a) {
     return *this;
 }
 
-// print angle
-void Angle::print() const {
-    std::cout << "Angle is " << degrees << std::endl;
+const Angle& Angle::operator=(double x) {
+    this->degrees = (int)x;
+    return *this;
+}
+
+// print object
+std::ostream& operator<<(std::ostream& out, const Angle& a) {
+    out << "Angle: " << a.get();
+    return out;
 }

@@ -1,0 +1,57 @@
+Randall Johnson
+10/17/2018
+Homework 07
+
+1. 
+
+At the end of the closing bracket for the class, there needs to be a semicolon.
+...
+}; // end of Projectile class
+
+2.
+
+It should be this->x = x; instead of this.x = x;
+
+3.
+
+a. the method takes a pointer to an integer as an argument, 
+and returns a pointer to an integer.
+
+b. the method takes a pointer to an integer as an argument,
+and returns a pointer to an integer that is constant.
+
+c. the method takes a pointer to an integer as an argument,
+and returns a pointer, that is constant, to an integer that is constant.
+
+d. the method takes a pointer to an integer that is constant as an argument,
+and returns a pointer, that is constant, to an integer that is constant.
+
+e. the method takes a pointer to an integer that is constant as an argument,
+and returns a pointer, that is constant, to an integer that is constant.
+However, this method cannot modify any data of the object's data.
+
+4.
+
+C++ strings are a lot more convenient to implement strings, 
+and it is a lot safer to use than C Strings. 
+C strings are just an array of characters that must be null terminated. 
+In C++ strings, you do not have to worry about adding a null terminator character.
+However, C strings are useful to use because they are lightweight, 
+which is important for writing high-performance programs.
+
+5.
+
+Pointers allow the programmers to have direct access to memory in the code, which
+made pointers to be very powerful, but frustrating, like having to dereference
+everytime the programmer wants to change the value.
+References are like pointers but act differently.
+References are automatically dereferenced, unlike pointers.
+Once the reference is initialized, it cannot modify what it points to. 
+Similar to a constant pointer.
+Reference cannot be nullified.
+
+6. 
+
+Destructor is called when the class is deleted from the stack (out of scoped) 
+or from the heap. It is mainly used to delete memory allocated by the class from the heap. 
+

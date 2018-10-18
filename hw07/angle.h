@@ -13,7 +13,6 @@ class Angle {
         void set(int x);
 
         Angle operator+(const Angle& a) const;
-
         const Angle& operator+=(const Angle& a);
         Angle operator-(const Angle& a) const;
         const Angle& operator-=(const Angle& a);
@@ -23,8 +22,9 @@ class Angle {
         const Angle& operator/=(const Angle& a);
         bool operator==(const Angle& a) const;
         const Angle& operator=(const Angle& a);
+        const Angle& operator=(double x);
 
-        void print() const;
+        friend std::ostream& operator<<(std::ostream& out, const Angle& a);
 };
 
 #endif
