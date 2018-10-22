@@ -12,6 +12,9 @@ class Angle {
         int get() const;    /* get degrees method */
         void set(int x);    /* set degrees method (useless) */
 
+        double getSin() const;
+        double getCos() const;
+
         Angle operator+(const Angle& a) const;  /* + operator */    
         const Angle& operator+=(const Angle& a);    /* += operator */
         Angle operator-(const Angle& a) const;  /* - operator */

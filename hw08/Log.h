@@ -5,6 +5,7 @@
 class Log {
     private:
         Log();
+        virtual ~Log();
         std::string fileName;
         mutable bool isLogging;
     public:

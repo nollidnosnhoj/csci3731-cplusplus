@@ -1,5 +1,8 @@
 #include <iostream>
+#include <cmath>
 #include "angle.h"
+
+#define PI 3.14159265
 
 // Angle constructor
 Angle::Angle(int x) {
@@ -28,6 +31,14 @@ int Angle::get() const {
 // Set angle's degrees
 void Angle::set(int x) {
     this->degrees = x;
+}
+
+double Angle::getCos() const {
+    return cos(degrees * PI / 180.0);
+}
+
+double Angle::getSin() const {
+    return sin(degrees * PI / 180.0);
 }
 
 // returns an new angle by adding one angle and another.
