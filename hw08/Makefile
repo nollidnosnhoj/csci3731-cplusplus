@@ -1,10 +1,13 @@
 all:main
 
+Angle.o: Angle.cc Angle.h
+	g++ -c -Werror Angle.cc
+
 Log.o: Log.cc Log.h
 	g++ -c -Werror Log.cc
 
-main.o: main.cc Log.h
+main.o: main.cc Angle.h Log.h
 	g++ -c -Werror main.cc
 
-main: main.o Log.o
-	g++ -o main main.o Log.o
+main: main.o Angle.o Log.o
+	g++ -o main main.o Angle.o Log.o

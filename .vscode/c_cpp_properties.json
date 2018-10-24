@@ -13,6 +13,8 @@
             ],
             "includePath": [
                 "${workspaceFolder}/include",
+                "C:/msys64/mingw64/include/c++/",
+                "C:/msys64/mingw64/include/c++/8.2.0",
                 "C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.2.0/include/c++",
                 "C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.2.0/include/c++/x86_64-w64-mingw32",
                 "C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.2.0/include/c++/backward",
