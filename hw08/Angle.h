@@ -1,5 +1,6 @@
 #ifndef ANGLE_H
 #define ANGLE_H
+#include <ostream>
 
 class Angle {
     private:
@@ -18,7 +19,7 @@ class Angle {
         Angle operator+(const Angle& a) const;  /* + operator */    
         const Angle& operator+=(const Angle& a);    /* += operator */
         Angle operator-(const Angle& a) const;  /* - operator */
-        const Angle& operator-=(const Angle& a);    /* -= operator */
+        Angle& operator-=(const Angle& a);    /* -= operator */
         Angle operator*(const Angle& a) const;  /* * operator */
         const Angle& operator*=(const Angle& a);    /* *= operator */
         Angle operator/(const Angle& a) const;  /* / operator */

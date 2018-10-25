@@ -73,7 +73,7 @@ Angle Angle::operator-(const Angle& a) const {
 }
 
 // angle -= angle
-const Angle& Angle::operator-=(const Angle& a) {
+Angle& Angle::operator-=(const Angle& a) {
     degrees -= a.get();
     if (degrees < 0) {
         degrees += 360;

@@ -1,12 +1,17 @@
 #include <string>
 #include <iostream>
-#include "Angle.h"
-#include "Log.h"
+#include "Fish.h"
+#include "Population.h"
 
 int main()
 {
-    const Log &debug = Log::getInstance();
-    debug.LoggingActive(true);
-    Angle a1(50);
-    std::cout << a1.getSin() << std::endl;
+    Population p;
+    Population& pop = p;
+    Fish* f1 = new Fish();
+    Fish* f2 = new Fish();
+    Fish* f3 = new Fish();
+    pop.add(f1);
+    pop.add(f2);
+    pop.add(f3);
+    pop.print();
 }

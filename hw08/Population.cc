@@ -1,13 +1,18 @@
+#include <iostream>
 #include "Population.h"
 #include "Fish.h"
 
 Population::Population() {
     this->head = NULL;
+    this->tail = NULL;
     this->count = 0;
 }
 
-void Population::add() {
-    Fish* newborn = new Fish();
+Population::~Population() {
+    
+}
+
+void Population::add(Fish* newborn) {
     if (count == 0) {
         newborn->next = head;
         head = newborn;
@@ -15,10 +20,10 @@ void Population::add() {
         tail->next = newborn;
         tail = newborn;
     }
-    count += 1;
+    ++count;
 }
 
-void Population::remove(Fish*& dead) {
+void Population::remove(Fish* dead) {
     if (head == dead) {
         if (head->next == NULL) {
             head = NULL;
@@ -26,21 +31,34 @@ void Population::remove(Fish*& dead) {
             head = head->next;
         }
     } else {
-        Fish* previous = head;
-        while(previous->next != NULL && previous->next != dead) {
+        Fish* prev = head;
+        while (prev->next != NULL && prev->next != dead) {
             prev = prev->next;
         }
         if (prev->next == NULL) {
-            //test
+            return;
         } else {
-            previous->next = previous->next->next;
+            prev->next = prev->next->next;
+            if (prev->next == NULL) {
+                tail = prev->next;
+            }
         }
     }
     delete(dead);
     dead = NULL;
+    --count;
 }
 
-int Population::size() {
+void Population::print() const {
+    Fish* ptr = head;
+    while (ptr != NULL) {
+        std::cout << "FISH!" <<  std::endl;
+        ptr = ptr->next;
+    }
+}
+
+
+int Population::size() const {
     return count;
 }
 

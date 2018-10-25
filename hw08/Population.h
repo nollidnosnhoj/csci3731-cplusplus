@@ -1,5 +1,5 @@
-#ifndef POPOULATION_H
-#define POPOULATION_H
+#ifndef POPULATION_H
+#define POPULATION_H
 class Fish;
 
 class Population {
@@ -8,10 +8,13 @@ class Population {
         Fish* tail;
         int count;
     public:
-        void add() const;
-        void remove(Fish*& dead) const;
+        Population();
+        virtual ~Population();
+        void add(Fish* newborn);
+        void remove(Fish* fish);
         int size() const;
-        Fish* get(int index) const;
+        void print() const;
+        // Fish* get(int index);
 };
 
 #endif

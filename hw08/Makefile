@@ -3,11 +3,14 @@ all:main
 Angle.o: Angle.cc Angle.h
 	g++ -c -Werror Angle.cc
 
-Log.o: Log.cc Log.h
-	g++ -c -Werror Log.cc
+Population.o: Population.cc Population.h Fish.h
+	g++ -c -Werror Population.cc
 
-main.o: main.cc Angle.h Log.h
+Fish.o: Fish.cc Fish.h
+	g++ -c -Werror Fish.cc
+
+main.o: main.cc Fish.h Population.h
 	g++ -c -Werror main.cc
 
-main: main.o Angle.o Log.o
-	g++ -o main main.o Angle.o Log.o
+main: main.o Fish.o Population.o Angle.o
+	g++ -o main main.o Fish.o Population.o Angle.o
