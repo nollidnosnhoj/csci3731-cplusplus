@@ -1,4 +1,5 @@
 #include <cstdlib>
+#include <ctime>
 #include <iostream>
 #include <string>
 #include <math.h>
@@ -9,6 +10,7 @@ Fish::Fish() : direction(0), turnRate(0) {
     this->y = 0.0;
     this->speed = 1.0;
     this->distance = 0.0;
+    this->isDead = false;
     this->next = NULL;
 }
 
@@ -18,6 +20,7 @@ Fish::Fish(double speed, int d, int tr)
     this->y = 0.0;
     this->speed = speed;
     this->distance = 0.0;
+    this->isDead = false;
     this->next = NULL;
 }
 
@@ -26,9 +29,10 @@ Fish::~Fish() {
 }
 
 void Fish::swim() {
+    srand(time(NULL));
     int choice = rand() % 3;
     if (choice == 0) {
-        direction -= turnRate;
+        direction += turnRate;
     }
     if (choice == 2) {
         direction -= turnRate;
@@ -36,11 +40,15 @@ void Fish::swim() {
     x += speed * direction.getCos();
     y += speed * direction.getSin();
     distance = sqrt(pow(x,2) + pow(y,2));
+    if (distance >= 100) {
+        isDead = true;
+    }
 }
 
 void Fish::print() const {
     std::cout << "Current Position: (" << x << "," << y << ")" << std::endl;
     std::cout << "Current Speed: " << speed << std::endl;
+    std::cout << "Current Distance: " << distance << std::endl;
 }
 
 std::ostream& operator << (std::ostream& out, const Fish& f) {
@@ -50,6 +58,6 @@ std::ostream& operator << (std::ostream& out, const Fish& f) {
     return out;
 }
 
-void Fish::setSpeed(double speed) {
-    this->speed = speed;
+double Fish::getDistance() const {
+    return distance;
 }

@@ -14,24 +14,33 @@ Population::~Population() {
     
 }
 
-// add new fish to population
-void Population::add() {
+/**
+ * This function creates a fish and adds it into the population.
+ * NOTE: This creates a fish from the heap. Use the remove() method to
+ * delete fish from the heap.
+ */
+void Population::add(double speed, int direction, int turnRate) {
     // create fish
-    Fish* newborn = new Fish();
+    Fish* newborn = new Fish(speed, direction, turnRate);
     // if head is NULL, set newborn to head
     if (!head) {
         newborn->next = head;
         head = newborn;
     } else { // put fish to end of list
         Fish* ptr = head;
-        while(ptr->next != NULL) ptr = ptr->next;
+        while(ptr->next != NULL) {
+            ptr = ptr->next;
+        } 
         ptr->next = newborn;
     }
     // increment fish count
     ++count;
 }
 
-// remove fish given the fish (this method is the only one that can delete fishes)
+/**
+ * This function removes a fish from the population, based on the index.
+ * NOTE: This method deletes the fish from the heap. 
+ */
 void Population::remove(Fish* dead) {
     // if the head fish is the one
     if (head == dead) {

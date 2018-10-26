@@ -10,7 +10,7 @@ class Population {
     public:
         Population();
         virtual ~Population();
-        void add();
+        void add(double speed, int direction, int turnRate);
         void remove(Fish* fish);
         int size() const;
         void print() const;
