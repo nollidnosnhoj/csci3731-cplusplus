@@ -1,0 +1,33 @@
+Randall Johnson
+10/25/2018
+Homework 8
+(Enable Word Wrap)
+
+1.
+
+The friend keyword allows a class to have special access to external functions, like operator overloading.
+
+2.
+
+Using 'using namespace std' means that you are importing std into any C++ file that includes that header.
+
+3.
+
+- Returning a reference to a class member. Returning an object that is part of the class will ensure that the object will not get cleaned afte the function finishes.
+- Returning a copy of the object. 
+- Returning an object created on the heap. Returns a pointer to the newly created object in the heap. Important to document that an object has been created in the heap so they know that it needs to be deleted.
+- Use it as an argument. Instead of returning an object, take a reference to an object as an argument, and set the values in the function. 
+
+4.
+
+mutable keyword mark variables to be modified in const methods.
+
+5.
+
+- It can contains actually objects, which is great if you want the object to be unique to the class.
+- References. Allow multiple classes to share the same reference, meaning that a class does not own the object.
+- Pointer. Unlike reference, pointers can be null, and does not know who owns it, so keeping track of the pointer is important.
+
+6.
+
+A singleton is a class that can only ever have one instance. This is great for classes that only need one instance, so it makes accessing them a lot easier.

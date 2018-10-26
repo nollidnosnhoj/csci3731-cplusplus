@@ -3,8 +3,11 @@
 #include <iostream>
 
 Log::Log() {
-    this->fileName = "log.txt";
     this->isLogging = false;
+}
+
+Log::~Log() {
+    
 }
 
 const Log& Log::getInstance() {
