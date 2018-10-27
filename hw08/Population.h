@@ -5,16 +5,20 @@ class Fish;
 
 class Population {
     private:
-        Fish* head;
-        int count;
+        Fish* head;                                             /* head pointer */
+        int count;                                              /* counter */
+        int deadcount;
     public:
-        Population();
-        virtual ~Population();
+        Population();                                           /* constructor */
+        virtual ~Population();                                  /* destructor */
+        // add fish into heap and population
         void add(double speed, int direction, int turnRate);
+        // remove fish from population and heap
         void remove(Fish* fish);
-        int size() const;
-        void print() const;
-        Fish* get(int index) const;
+        int size() const;                                       /* size of population */
+        void print() const;                                     /* print populatino */
+        Fish* get(int index) const;                             /* return pointer to fish */
+        int getDeadCount() const;
 };
 
 #endif

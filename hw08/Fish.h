@@ -9,7 +9,6 @@ class Fish {
         mutable double y;   /* y coordinate */
         double speed;
         double distance;
-        bool isDead;
         Angle direction;    /* angular direction */
         Angle turnRate;     /* angular turn rate */ 
     public:
@@ -17,10 +16,9 @@ class Fish {
         Fish(double speed, int d, int tr);  /* constructor w/ params */
         virtual ~Fish();                    /* destructor */
         void swim();                        /* swim method */
-        void print() const;
-        double getDistance() const;
+        double getDistance() const;         /* get distance getter */
         friend std::ostream& operator << (std::ostream& out, const Fish& f);
-        Fish* next;
+        Fish* next;                         /* next fish pointer */
 };
 
 #endif

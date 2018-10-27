@@ -10,6 +10,7 @@ Log::~Log() {
     
 }
 
+// generate singleton instance
 const Log& Log::getInstance() {
     static Log instance;
     return instance;

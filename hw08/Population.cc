@@ -72,6 +72,7 @@ void Population::remove(Fish* dead) {
     dead = NULL;
     // decrement fish count
     --count;
+    ++deadcount;
 }
 
 // print fishes in population
@@ -101,4 +102,8 @@ Fish* Population::get(int index) const {
         return captured;
     }
     return NULL;
+}
+
+int Population::getDeadCount() const {
+    return deadcount;
 }
