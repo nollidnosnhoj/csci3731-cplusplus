@@ -14,12 +14,12 @@ class Fish {
         Angle turnRate;                                     /* angular turn rate */
         Population& pop;
     public:
-        Fish(Population& p, double speed, int d, int tr);   /* constructor w/ params */
-        virtual ~Fish();                                    /* destructor */
-        void swim();                                        /* swim method */
-        double getDistance() const;                         /* get distance getter */
+        mutable bool isDead;
+        Fish(Population& p, double speed, int d, int tr);
+        virtual ~Fish(); 
+        void swim(); 
         friend std::ostream& operator << (std::ostream& out, const Fish& f);
-        Fish* next;                                         /* next fish pointer */
+        Fish* next; 
 };
 
 #endif

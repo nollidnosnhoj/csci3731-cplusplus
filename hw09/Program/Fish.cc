@@ -13,6 +13,7 @@ Fish::Fish(Population& p, double speed, int d, int tr) : direction(d), turnRate(
     this->speed = speed;
     this->distance = 0.0;
     this->next = NULL;
+    this->isDead = false;
 
     pop.add(this);
 }
@@ -34,6 +35,9 @@ void Fish::swim() {
     x += speed * direction.getCos();
     y += speed * direction.getSin();
     distance = sqrt(pow(x,2) + pow(y,2));
+    if (distance >= 100) {
+        isDead = true;
+    }
 }
 
 // print fish info
@@ -42,9 +46,4 @@ std::ostream& operator << (std::ostream& out, const Fish& f) {
     out << "Current Speed: " << f.speed << "\n";
     out << "Current Distance: " << f.distance << "\n";
     return out;
-}
-
-// getter for distance
-double Fish::getDistance() const {
-    return distance;
 }

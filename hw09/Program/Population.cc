@@ -83,7 +83,6 @@ void Population::remove(Fish* dead) {
         dead = NULL;
         // decrement fish count
         --count;
-        ++deadcount;
     } else {
         throw Exception("There's nothing to remove.");
     }
@@ -117,8 +116,4 @@ Fish* Population::get(int index) const {
     } else {
         throw Exception("Index is out of bounds");
     }
-}
-
-int Population::getDeadCount() const {
-    return deadcount;
 }
