@@ -1,13 +1,22 @@
 all:main
 
+Exception.o: Exception.cc Exception.h
+	g++ -c -Werror Exception.cc
+
 Log.o: Log.cc Log.h
 	g++ -c -Werror Log.cc
 
 Angle.o: Angle.cc Angle.h
 	g++ -c -Werror Angle.cc
 
-Population.o: Population.cc Population.h Fish.h
+Population.o: Population.cc Population.h Fish.h Exception.h
 	g++ -c -Werror Population.cc
+
+FlippyFish.o: FlippyFish.cc FlippyFish.h
+	g++ -c -Werror FlippyFish.cc
+
+DrunkenFish.o: DrunkenFish.cc DrunkenFish.h
+	g++ -c -Werror DrunkenFish.cc
 
 Fish.o: Fish.cc Fish.h
 	g++ -c -Werror Fish.cc
@@ -15,5 +24,5 @@ Fish.o: Fish.cc Fish.h
 main.o: main.cc Fish.h Population.h Log.h
 	g++ -c -Werror main.cc
 
-main: main.o Fish.o Population.o Angle.o Log.o
-	g++ -o main main.o Fish.o Population.o Angle.o Log.o
+main: main.o Fish.o Population.o Angle.o Log.o Exception.o DrunkenFish.o FlippyFish.o
+	g++ -o main main.o Fish.o Population.o Angle.o Log.o Exception.o DrunkenFish.o FlippyFish.o

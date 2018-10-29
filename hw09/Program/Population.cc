@@ -12,7 +12,14 @@ Population::Population() {
 
 // destructor
 Population::~Population() {
-    
+    Fish* ptr = head;
+    Fish* temp;
+
+    while (ptr != NULL) {
+        temp = ptr;
+        ptr = ptr->next;
+        delete temp;
+    }
 }
 
 /**

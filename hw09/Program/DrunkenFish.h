@@ -1,7 +1,12 @@
+#ifndef DRUNKENFISH_H
+#define DRUNKENFISH_H
 #include "Fish.h"
+class Population;
 
 class DrunkenFish : public Fish {
     public:
-        DrunkenFish(double speed, int direction, int turnrate);
-        virtual swim() const;
+        DrunkenFish(Population& p, double speed, int direction, int turnrate);
+        virtual void swim() const;
 };
+
+#endif

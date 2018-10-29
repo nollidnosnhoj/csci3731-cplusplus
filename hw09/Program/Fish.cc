@@ -4,16 +4,17 @@
 #include <string>
 #include <math.h>
 #include "Fish.h"
+#include "Population.h"
 
 // constructor with speed, direction, and turnrate arguments
-Fish::Fish(Population& p, double speed, int d, int tr) : direction(d), turnRate(tr), population(p) {
+Fish::Fish(Population& p, double speed, int d, int tr) : direction(d), turnRate(tr), pop(p) {
     this->x = 0.0;
     this->y = 0.0;
     this->speed = speed;
     this->distance = 0.0;
     this->next = NULL;
 
-    p.add(this);
+    pop.add(this);
 }
 
 Fish::~Fish() {

@@ -3,7 +3,7 @@
 #include <math.h>
 #include "DrunkenFish.h"
 
-DrunkenFish::DrunkenFish(double speed, int direction, int turnrate) : Fish(speed, direction, turnrate) { }
+DrunkenFish::DrunkenFish(Population& p, double speed, int direction, int turnrate) : Fish(p, speed, direction, turnrate) { }
 
 void DrunkenFish::swim() const {
     srand(time(NULL));

@@ -12,7 +12,7 @@ class Population {
         Population();                                           /* constructor */
         virtual ~Population();                                  /* destructor */
         // add fish into heap and population
-        void add(double speed, int direction, int turnRate);
+        void add(Fish* newborn);
         // remove fish from population and heap
         void remove(Fish* fish);
         int size() const;                                       /* size of population */
