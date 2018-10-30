@@ -10,14 +10,15 @@ class Fish {
         mutable double y;                                   /* y coordinate */
         mutable double distance;
         double speed;
+        mutable bool dead;
         Angle direction;                                    /* angular direction */
         Angle turnRate;                                     /* angular turn rate */
         Population& pop;
     public:
-        mutable bool isDead;
         Fish(Population& p, double speed, int d, int tr);
         virtual ~Fish(); 
         void swim(); 
+        bool isDead() const;
         friend std::ostream& operator << (std::ostream& out, const Fish& f);
         Fish* next; 
 };

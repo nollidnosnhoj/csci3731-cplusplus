@@ -28,7 +28,7 @@ int main()
         for (int i = 0; i < p.size(); ++i) {
             Fish* current = p.get(i);
             current->swim();
-            if (current->isDead == true) {
+            if (current->isDead()) {
                 const std::type_info& type = typeid(*current);
                 if (type == typeid(DrunkenFish)) {
                     --drunkenCount;

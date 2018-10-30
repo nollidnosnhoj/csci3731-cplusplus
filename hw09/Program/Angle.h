@@ -4,7 +4,11 @@
 
 class Angle {
     private:
-        int degrees;    /* degrees */
+        mutable int degrees;    /* degrees */
+        mutable double cosine;
+        mutable double sine;
+        mutable bool haveCosine;
+        mutable bool haveSine;
 
     public:
         Angle(int x);   /* constructor */

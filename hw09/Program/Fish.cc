@@ -13,7 +13,7 @@ Fish::Fish(Population& p, double speed, int d, int tr) : direction(d), turnRate(
     this->speed = speed;
     this->distance = 0.0;
     this->next = NULL;
-    this->isDead = false;
+    this->dead = false;
 
     pop.add(this);
 }
@@ -24,20 +24,20 @@ Fish::~Fish() {
 
 // swimming method
 void Fish::swim() {
-    srand(time(NULL));
-    int choice = rand() % 3;
-    if (choice == 0) {
-        direction += turnRate;
+    if (!dead) {
+        srand(time(NULL));
+        int choice = rand() % 3;
+        if (choice == 0) direction += turnRate;
+        if (choice == 2) direction -= turnRate;
+        x += speed * direction.getCos();
+        y += speed * direction.getSin();
+        distance = sqrt(pow(x,2) + pow(y,2));
+        if (distance >= 100) dead = true;
     }
-    if (choice == 2) {
-        direction -= turnRate;
-    }
-    x += speed * direction.getCos();
-    y += speed * direction.getSin();
-    distance = sqrt(pow(x,2) + pow(y,2));
-    if (distance >= 100) {
-        isDead = true;
-    }
+}
+
+bool Fish::isDead() const {
+    return dead;
 }
 
 // print fish info
