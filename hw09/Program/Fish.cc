@@ -6,7 +6,9 @@
 #include "Fish.h"
 #include "Population.h"
 
-// constructor with speed, direction, and turnrate arguments
+// Fish's constructor
+// Adds the arguments into their appropriate attributes.
+// Adds the fish pointer to the population linked list.
 Fish::Fish(Population& p, double speed, int d, int tr) : direction(d), turnRate(tr), pop(p) {
     this->x = 0.0;
     this->y = 0.0;
@@ -18,11 +20,12 @@ Fish::Fish(Population& p, double speed, int d, int tr) : direction(d), turnRate(
     pop.add(this);
 }
 
+// Destructor for when the fish is deleted from the heap. Also will remove itself from the linked list.
 Fish::~Fish() {
-    // add code for when the fish is destroyed in heap.
+    pop.remove(this);
 }
 
-// swimming method
+// Default swimming method.
 void Fish::swim() {
     if (!dead) {
         srand(time(NULL));
@@ -36,11 +39,12 @@ void Fish::swim() {
     }
 }
 
+// Return whether the fish is dead (distance is more than 100 units).
 bool Fish::isDead() const {
     return dead;
 }
 
-// print fish info
+// Override << operator from the ostream to print fish's information.
 std::ostream& operator << (std::ostream& out, const Fish& f) {
     out << "Current Position: (" << f.x << "," << f.y << ")\n";
     out << "Current Speed: " << f.speed << "\n";

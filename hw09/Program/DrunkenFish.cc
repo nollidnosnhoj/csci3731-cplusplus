@@ -3,8 +3,10 @@
 #include <math.h>
 #include "DrunkenFish.h"
 
+// Use constructor from super class (Fish)
 DrunkenFish::DrunkenFish(Population& p, double speed, int direction, int turnrate) : Fish(p, speed, direction, turnrate) { }
 
+// Override swim method
 void DrunkenFish::swim() const {
     srand(time(NULL));
     int choice = rand() % 3;

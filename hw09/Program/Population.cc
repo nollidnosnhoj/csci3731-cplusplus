@@ -4,13 +4,13 @@
 #include "Fish.h"
 #include "Exception.h"
 
-// constructor
+// Constructor (initalize length and head pointer)
 Population::Population() {
     this->head = NULL;
     this->count = 0;
 }
 
-// destructor
+// Destructor (delete all nodes if any)
 Population::~Population() {
     Fish* ptr = head;
     Fish* temp;
@@ -18,77 +18,59 @@ Population::~Population() {
     while (ptr != NULL) {
         temp = ptr;
         ptr = ptr->next;
-        delete temp;
+        delete (temp);
     }
 }
 
-/**
- * This function creates a fish and adds it into the population.
- * NOTE: This creates a fish from the heap. Use the remove() method to
- * delete fish from the heap.
- */
+// Adds fish into population. Takes a fish pointer as an argument
+// This method should only be called during the fish's birth (fish's constructor is called).
 void Population::add(Fish* newborn) {
     if (newborn->next != NULL) {
         throw Exception("Not a newborn");
     } else {
-        // if head is NULL, set newborn to head
         if (!head) {
             newborn->next = head;
             head = newborn;
-        } else { // put fish to end of list
+        } else {
             Fish* ptr = head;
             while(ptr->next != NULL) {
                 ptr = ptr->next;
             } 
             ptr->next = newborn;
         }
-        // increment fish count
         ++count;
     }
 }
 
-/**
- * This function removes a fish from the population, based on the index.
- * NOTE: This method deletes the fish from the heap. 
- */
+// Removes a specific fish from the population. Takes a fish pointer as an argument.
+// This method should only be called when the fish is destroyed (fish's destructor is called).
 void Population::remove(Fish* dead) {
     if (count > 0) {
-        // if the head fish is the one
         if (head == dead) {
-            // if there's only one fish, there kill that fish
             if (!head->next) {
                 head = NULL;
             } else {
-                // if there's another fish after head, then set the head to the other fish.
                 head = head->next;
             }
         } else {
-            // create previous fish pointer
             Fish* prev = head;
-            // traverse through the fish until the end, or until you found the dead fish
             while (prev->next && prev->next != dead) {
                 prev = prev->next;
             }
-            // if the pointer reached the last fish, and the next fish is null. then return
-            if (!prev->next) {
-                return;
-            } else {
-                // delete the dead fish that's between the prev next fish and the next next fish
-                // (ptr) (dead fish) (prev->next->next)
+            if (!prev->next) {  // if the fish does not exist within the linked list
+                throw Exception("Fish does not exist within population");
+            } else {    // move the previous fish's next to the next next (skipping the removed fish)
                 prev->next = prev->next->next;
             }
         }
-        // delete the dead fish
-        delete(dead);
         dead = NULL;
-        // decrement fish count
         --count;
     } else {
         throw Exception("There's nothing to remove.");
     }
 }
 
-// print fishes in population
+// Print out the current fishes in population.
 void Population::print() const {
     Fish* ptr = head;
     while (ptr) {
@@ -97,14 +79,13 @@ void Population::print() const {
     }
 }
 
-// return the size of the population
+// Return the population size
 int Population::size() const {
     return count;
 }
 
-// return a pointer to the fish specified by the index
+// Returns the fish pointer given the specific index in the linked list (population).
 Fish* Population::get(int index) const {
-    // if the index is within boundaries
     if (index > -1 && index < count) {
         Fish* captured = head;
         int ptr = 0;

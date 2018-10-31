@@ -8,19 +8,19 @@ class Fish {
     protected:
         mutable double x;                                   /* x coordinate */
         mutable double y;                                   /* y coordinate */
-        mutable double distance;
-        double speed;
-        mutable bool dead;
+        mutable double distance;                            /* distance */
+        mutable bool dead;                                  /* is dead ? */
+        double speed;                                       /* speed */
         Angle direction;                                    /* angular direction */
         Angle turnRate;                                     /* angular turn rate */
-        Population& pop;
+        Population& pop;                                    /* reference to population */
     public:
-        Fish(Population& p, double speed, int d, int tr);
-        virtual ~Fish(); 
-        void swim(); 
-        bool isDead() const;
-        friend std::ostream& operator << (std::ostream& out, const Fish& f);
-        Fish* next; 
+        Fish(Population& p, double speed, int d, int tr);                       /* constructor */
+        virtual ~Fish();                                                        /* destructor */
+        void swim();                                                            /* swim */
+        bool isDead() const;                                                    /* is dead checker */
+        friend std::ostream& operator << (std::ostream& out, const Fish& f);    /* << override */
+        Fish* next;                                                             /* reference to next fish */
 };
 
 #endif
