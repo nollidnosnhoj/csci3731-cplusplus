@@ -8,6 +8,7 @@
 #include "FlippyFish.h"
 #include "Population.h"
 #include "Log.h"
+#include "Exception.h"
 
 int main()
 {
@@ -23,13 +24,28 @@ int main()
     // Counters for both flippy and drunken fishes.
     int flippyCount = 0; 
     int drunkenCount = 0;
-    // Generate 100 of each fishes, with random speed, direction, but fixed turnrate of 50 degrees
-    for (int i = 0; i < 100; ++i) {
-        Fish* fish1 = new FlippyFish(p, rand() % 50 + 1, rand() % 360, 50);
-        ++flippyCount;
-        Fish* fish2 = new DrunkenFish(p, rand() % 50 + 1, rand() % 360, 50);
-        ++drunkenCount;
+
+    int amount = 0;
+    std::cout << "How many fishes (each) do you want in the lake? ";
+    std::cin >> amount;
+    int turnRate = 0;
+    std::cout << "What's the turnrate (in degrees) for each fish? (Input negative integer for random turn rate) ";
+    std::cin >> turnRate;
+    if (turnRate < 0) {
+        turnRate = rand() % 360;
     }
+
+    if (amount > 0) {
+        for (int i = 0; i < amount; ++i) {
+            Fish* fish1 = new FlippyFish(p, rand() % 50 + 1, rand() % 360, turnRate);
+            ++flippyCount;
+            Fish* fish2 = new DrunkenFish(p, rand() % 50 + 1, rand() % 360, turnRate);
+            ++drunkenCount;
+        }
+    } else {
+        throw Exception("There should be at least 1 fish in the population.");
+    }
+    
     // Loop until whatever type of fish is gone from the population
     while (flippyCount != 0 && drunkenCount != 0) {
         // Loop through each fish in the population
@@ -51,6 +67,7 @@ int main()
             }
         }
     }
+
     if (flippyCount == 0) std::cout << "There are " << drunkenCount << " drunk fishes left" << std::endl;
     if (drunkenCount == 0) std::cout << "There are " << flippyCount << " flippy fishes left" << std::endl;
 }

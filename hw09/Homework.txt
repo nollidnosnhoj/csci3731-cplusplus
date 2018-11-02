@@ -24,7 +24,7 @@ The const cast will cast away the const in a method. An example of using this is
 
 5.
 
-// answer
+void eat(Fruit f) is looking for an Fruit object, while void eat(const Fruit& f) is looking for a reference to Fruit, which Banana has because it's a subclass of Fruit
 
 6.
 
