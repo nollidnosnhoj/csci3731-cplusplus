@@ -1,16 +1,18 @@
 #ifndef ANGLE_H
 #define ANGLE_H
 #include <ostream>
+#define PI 3.14
 
 template<class T> class Angle {
     private:
-        mutable T x;    /* degrees */
-        mutable double cosine;
-        mutable double sine;
-        mutable bool haveCosine;
-        mutable bool haveSine;
+        mutable T degrees;                      /* degrees */
+        mutable double cosine;                  /* cosine */
+        mutable double sine;                    /* sine */
+        mutable bool haveCosine;                /* have cosine? */
+        mutable bool haveSine;                  /* have sine? */
 
     public:
+        // constructor
         Angle(T x) {
             if (x >= 360) {
                 do {
@@ -31,16 +33,19 @@ template<class T> class Angle {
 
         }
 
+        // return degrees of an angle
         T& get() const {
             return degrees;
         }
 
+        // set degrees for angle
         void set(T x) {
             this->degrees = x;
             haveCosine = false;
             haveSine = false;
         }
 
+        // get the sin of the angle
         double getSin() const {
             if (!haveSine) {
                 sine = sin(degrees * (PI / 180.0));
@@ -49,6 +54,7 @@ template<class T> class Angle {
             return sine;
         }
 
+        // get the cosine of the angle
         double getCos() const {
             if (!haveCosine) {
                 cosine = cos(degrees * (PI / 180.0));
@@ -125,11 +131,6 @@ template<class T> class Angle {
         const Angle& operator=(double x) {
             this->degrees = (int)x;
             return *this;
-        }
-
-        friend std::ostream& operator<<(std::ostream& out, const Angle& a) {
-            out << "Angle: " << a.get();
-            return out;
         }
         // << operator
 };

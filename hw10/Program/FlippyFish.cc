@@ -1,6 +1,9 @@
+#include <cstdlib>
+#include <ctime>
+#include <math.h>
 #include "FlippyFish.h"
 
-FlippyFish::FlippyFish(double speed, T direction, T turnrate) 
+FlippyFish::FlippyFish(double speed, int direction, int turnrate) 
     : Fish(speed, direction, turnrate) { }
 
 void FlippyFish::swim() const{

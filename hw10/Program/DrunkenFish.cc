@@ -4,7 +4,7 @@
 #include "DrunkenFish.h"
 
 // Use constructor from super class (Fish)
-DrunkenFish::DrunkenFish(double speed, T direction, T turnrate) 
+DrunkenFish::DrunkenFish(double speed, int direction, int turnrate) 
     : Fish(speed, direction, turnrate) { }
 
 // Override swim method
@@ -18,4 +18,5 @@ void DrunkenFish::swim() const {
     else y -= speed;
 
     distance = sqrt(pow(x,2) + pow(y,2));
+    if (distance >= 100) dead = true;
 }
