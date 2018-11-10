@@ -5,7 +5,7 @@
 class DrunkenFish : public Fish {
     public:
         DrunkenFish(double speed, int direction, int turnrate);
-        void swim() const;  /* overriding swim */
+        virtual void swim() const;  /* overriding swim */
 };
 
 #endif

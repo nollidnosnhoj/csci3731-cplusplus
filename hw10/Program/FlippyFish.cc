@@ -3,11 +3,12 @@
 #include <math.h>
 #include "FlippyFish.h"
 
+// constructor
 FlippyFish::FlippyFish(double speed, int direction, int turnrate) 
     : Fish(speed, direction, turnrate) { }
 
+// swim
 void FlippyFish::swim() const{
-    if (!dead) {
         srand(time(NULL));
         int choice = rand() % 3;
         if (choice == 0) direction += turnRate;
@@ -16,5 +17,4 @@ void FlippyFish::swim() const{
         y += speed * direction.getSin();
         distance = sqrt(pow(x,2) + pow(y,2));
         if (distance >= 100) dead = true;
-    }
 }

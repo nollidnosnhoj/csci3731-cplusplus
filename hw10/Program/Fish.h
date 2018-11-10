@@ -10,15 +10,16 @@ class Fish {
         mutable double distance;                            /* distance */
         mutable bool dead;                                  /* is dead ? */
         double speed;                                       /* speed */
-        Angle<int> direction;                                    /* angular direction */
-        Angle<int> turnRate;                                     /* angular turn rate */
+        Angle<int> direction;                       /* angular direction */
+        Angle<int> turnRate;                        /* angular turn rate */
     public:
         Fish(double speed, int d, int tr);                       /* constructor */
-        virtual ~Fish();                                                        /* destructor */
-        void swim() const;
-        bool isDead() const;                                                    /* is dead checker */
+        virtual ~Fish();                                         /* destructor */
+        virtual void swim() const = 0;
+        bool isDead() const;                                     /* is dead checker */
         double getDistance() const;
-        // friend std::ostream& operator << (std::ostream& out, const Fish& f);    /* << override */                                                           /* reference to next fish */
+        int getAngle() const;
+        friend std::ostream& operator << (std::ostream& out, const Fish& f);    
 };
 
 #endif

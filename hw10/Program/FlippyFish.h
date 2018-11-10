@@ -5,7 +5,7 @@
 class FlippyFish : public Fish {
     public:
         FlippyFish(double speed, int direction, int turnrate);
-        void swim() const;
+        virtual void swim() const;
 };
 
 #endif

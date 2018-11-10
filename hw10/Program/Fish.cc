@@ -19,10 +19,6 @@ Fish::~Fish() {
     
 }
 
-void Fish::swim() const {
-
-}
-
 // Return whether the fish is dead (distance is more than 100 units).
 bool Fish::isDead() const {
     return dead;
@@ -30,6 +26,10 @@ bool Fish::isDead() const {
 
 double Fish::getDistance() const {
     return distance;
+}
+
+int Fish::getAngle() const {
+    return direction.get();
 }
 
 // Override << operator from the ostream to print fish's information.

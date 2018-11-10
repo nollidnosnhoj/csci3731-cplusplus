@@ -1,0 +1,13 @@
+Randall Dillon Johnson
+November 9, 2018
+Homework 10
+
+(Turn on Word Wrap)
+
+1. Java has an universal base class (Object) while C++ has no universal base class.
+
+2. Templates allows for writing generic code that will work for any data type, while a class's code is for a specific data type.
+
+3. Each time you use the template for a different data type, the compiler creates and compiles a separate version of the class, meaning larger compiled code. Also, even though templates will work for various data types, a template that is instantiated twice for different data types are not related to each other, despite using the same template.
+
+4. An iterator is a class the represents the current element of the collection and allows you to step from one to the next.
