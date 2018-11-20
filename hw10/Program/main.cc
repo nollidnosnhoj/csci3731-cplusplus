@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <typeinfo>
 #include <vector>
 #include "Fish.h"
 #include "DrunkenFish.h"
@@ -19,28 +20,26 @@ int main()
     typedef std::vector<Fish*> FishList;
     FishList population;
     srand(time(NULL));
-    // fish is born. 2000 fishes are born
-    for (int i = 0; i < 1000; ++i) {
-        Fish* fish1 = new FlippyFish(rand() % 50 + 1, rand() % 360, 50);
+    for (int i = 0; i < 10; ++i) {
+        int speed = rand() % 50 + 1;
+        int direction = rand() % 360;
+        Fish* fish1 = new FlippyFish(speed, direction, 50);
         population.push_back(fish1);
-        Fish* fish2 = new DrunkenFish(rand() % 50 + 1, rand() % 360, 50);
+        Fish* fish2 = new DrunkenFish(speed, direction, 50);
         population.push_back(fish2);
     }
 
-    // start timer
-    clock_t time;
-    time = clock();
-    // swim until death
     while (population.size() > 0) {
         for (int i = 0; i < population.size(); ++i) {
             Fish* dead = population[i];
+            std::cout << dead << std::endl;
             dead->swim();
             if (dead->isDead()) {
                 population.erase(population.begin() + i);
-                delete(dead);
+                for (int j = i + 1; j < population.size(); ++i) {
+                    population[j - 1] = population[j];
+                }
             }
         }
     }
-    time = clock() - time;
-    std::cout << "All fishes died in " << ((float) time) / CLOCKS_PER_SEC << " seconds." << std::endl;
 }
