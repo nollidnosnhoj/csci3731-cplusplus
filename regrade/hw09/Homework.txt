@@ -1,0 +1,33 @@
+Randall Johnson
+10/28/2018
+Homework 09
+
+* =  redo
+
+(Enable word wrap)
+
+*1.
+
+"Downcasting" refers to an object converting back into a subclass, while "Upcasting" refers to an object by its superclass. 
+
+2.
+
+The virtual keyword allows sub classes to override superclass methods. However, marking a method with a virtual keyword will cause it to run slower.
+
+3.
+
+Dynamic casting looks at the object being cast at runtime, and check if the casting is legal or not. If the casting is illegal, and you are casting a pointer, then it will return NULL. If you are casting a reference, then it will throw an exception.
+Static casting works similar, but instead in runtime, it will check if the casting is legal at compile time. 
+Dynamic casting is a bit slower since it has to traverse through the inheritence tree during runtime.
+
+4.
+
+The const cast will cast away the const in a method. An example of using this is when using someone's elses code and they forgot to makr the method argument as const. If you want to create a const object and use that method, you will not be able to. 
+
+*5.
+
+eat(Fruit f) makes a copy of the banana in a Fruit, so it throws away all the properties Banana has. Referring to fruit class will preserve the banana properties. 
+
+6.
+
+Java has interfaces, and C++ allows a class to inherit from more than one superclass.
