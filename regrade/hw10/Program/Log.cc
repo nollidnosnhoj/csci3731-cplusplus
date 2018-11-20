@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 
+// Log constructor
 Log::Log() {
     this->isLogging = false;
 }
@@ -16,10 +17,12 @@ const Log& Log::getInstance() {
     return instance;
 }
 
+// print statement in console
 void Log::print(const std::string& content) const {
     std::cout << "Log: " << content << std::endl;
 }
 
+// toggles log
 void Log::LoggingActive(bool turn) const {
     if (isLogging != turn) {
         isLogging = turn;

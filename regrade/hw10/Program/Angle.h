@@ -63,6 +63,7 @@ template<class T> class Angle {
             return cosine;
         }
 
+        // + operator
         Angle operator+(const Angle& a) const {
             int newDegrees = degrees + a.get();
             if (newDegrees > 360) {
@@ -71,6 +72,7 @@ template<class T> class Angle {
             return Angle(newDegrees);
         }
 
+        // += operator
         const Angle& operator+=(const Angle& a) {
             degrees += a.get();
             if (degrees > 360) {
@@ -79,6 +81,7 @@ template<class T> class Angle {
             return *this;
         }
 
+        // - operator
         Angle operator-(const Angle& a) const {
             int newDegrees = degrees - a.get();
             if (newDegrees < 0) {
@@ -87,6 +90,7 @@ template<class T> class Angle {
             return Angle(newDegrees);
         }
 
+        // -= operator
         Angle& operator-=(const Angle& a) {
             degrees -= a.get();
             if (degrees < 0) {
@@ -95,6 +99,7 @@ template<class T> class Angle {
             return *this;
         }
 
+        // * operator
         Angle operator*(const Angle& a) const {
             int newDegrees = degrees * a.get();
             if (newDegrees > 360) {
@@ -102,37 +107,48 @@ template<class T> class Angle {
             }
             return Angle(newDegrees);
         }
+
+        // *= operator
         const Angle& operator*=(const Angle& a) {
             degrees *= a.get();
             if (degrees > 360) {
                 degrees = degrees % 360;
             }
             return *this;
-        }   
+        }
+
+        // / operator
         Angle operator/(const Angle& a) const {
             if (a.get() == 0) {
                 return Angle(degrees);
             }
             return Angle(degrees / a.get());
         }
+
+        // /= operator
         const Angle& operator/=(const Angle& a) {
             if (a.get() != 0) {
                 degrees /= a.get();
             }
             return *this;
         } 
+
+        // == operator
         bool operator==(const Angle& a) const {
             return degrees == a.get();
         }
+
+        // = operator
         const Angle& operator=(const Angle& a) {
             this->degrees = a.get();
             return *this;
         }
+
+        // = operator (assign double)
         const Angle& operator=(double x) {
             this->degrees = (int)x;
             return *this;
         }
-        // << operator
 };
 
 #endif

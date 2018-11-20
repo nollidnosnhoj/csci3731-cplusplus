@@ -24,6 +24,7 @@ bool Fish::isDead() const {
     return dead;
 }
 
+// Returns the distance of the fish from origin
 double Fish::getDistance() const {
     return distance;
 }

@@ -5,18 +5,28 @@
 
 class Fish {
     protected:
-        double x;                                   /* x coordinate */
-        double y;                                   /* y coordinate */
-        double distance;                            /* distance */
-        bool dead;                                  /* is dead ? */
-        double speed;                                       /* speed */
+        // x coordinate
+        double x;
+        // y coordinate
+        double y;
+        // distance
+        double distance;
+        // if dead
+        bool dead;
+        // speed
+        double speed;
     public:
-        Fish(double speed);                       /* constructor */
-        virtual ~Fish();                                                        /* destructor */
+        // general fish constructor
+        Fish(double speed);
+        // destructor
+        virtual ~Fish();
         virtual void swim() = 0;
-        bool isDead() const;                                                    /* is dead checker */
+        // get is dead
+        bool isDead() const;
+        // get distance
         double getDistance() const;
-        friend std::ostream& operator << (std::ostream& out, const Fish& f);    /* << override */                                                           /* reference to next fish */
+        // << operator
+        friend std::ostream& operator << (std::ostream& out, const Fish& f);
 };
 
 #endif

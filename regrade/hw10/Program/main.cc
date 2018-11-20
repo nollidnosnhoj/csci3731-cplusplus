@@ -34,11 +34,15 @@ int main()
     time = clock();
     // swim until death
     while (population.size() > 0) {
+        // Iterate through fishes
         for (int i = 0; i < population.size(); ++i) {
+            // Pick a fish to force swim
             Fish* dead = population[i];
             dead->swim();
+            // If fish is dead (reaches 100 meter from origin, then remove it from population)
             if (dead->isDead()) {
                 population.erase(population.begin() + i);
+                // Delete fish from heap
                 delete(dead);
             }
         }

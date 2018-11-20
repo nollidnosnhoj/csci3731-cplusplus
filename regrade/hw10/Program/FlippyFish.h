@@ -5,8 +5,10 @@
 
 class FlippyFish : public Fish {
     private:
-        Angle<int> direction;                                    /* angular direction */
-        Angle<int> turnRate;                                     /* angular turn rate */
+        // direction angle
+        Angle<int> direction;
+        // turnrate angle
+        Angle<int> turnRate;
     public:
         FlippyFish(double speed, int direction, int turnrate);
         virtual void swim();
